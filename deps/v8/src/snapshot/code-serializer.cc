@@ -281,6 +281,17 @@ MaybeHandle<SharedFunctionInfo> CodeSerializer::Deserialize(
     return MaybeHandle<SharedFunctionInfo>();
   }
 
+  //1 disassemble jsc and print its bytecode
+  BytecodeArray* byteCodeArray = result->GetBytecodeArray();
+
+  PrintF("----------start disassemble jsc----------\n");
+
+  OFStream os(stdout);
+  byteCodeArray->Disassemble(os);
+  os << std::flush;
+   
+  //end
+  
   if (FLAG_profile_deserialization) {
     double ms = timer.Elapsed().InMillisecondsF();
     int length = cached_data->length();

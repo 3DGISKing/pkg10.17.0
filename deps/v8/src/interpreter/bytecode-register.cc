@@ -113,13 +113,13 @@ bool Register::AreContiguous(Register reg1, Register reg2, Register reg3,
 
 std::string Register::ToString(int parameter_count) const {
   if (is_current_context()) {
-    return std::string("<context>");
+    return std::string("<context/>");
   } else if (is_function_closure()) {
-    return std::string("<closure>");
+    return std::string("<closure/>");
   } else if (is_parameter()) {
     int parameter_index = ToParameterIndex(parameter_count);
     if (parameter_index == 0) {
-      return std::string("<this>");
+      return std::string("<this/>");
     } else {
       std::ostringstream s;
       s << "a" << parameter_index - 1;

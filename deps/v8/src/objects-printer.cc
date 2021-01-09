@@ -1359,6 +1359,18 @@ void SharedFunctionInfo::SharedFunctionInfoPrint(std::ostream& os) {  // NOLINT
   os << "\n - expected_nof_properties: " << expected_nof_properties();
   os << "\n - language_mode: " << language_mode();
   os << "\n - data: " << Brief(function_data());
+
+  //4 disassemble SharedFunctionInfo Bytecode array
+  os << "\n\n<disassembledSharedFunctionInfoBytecodearray>\n";
+
+  BytecodeArray* byteCodeArray = this->GetBytecodeArray();
+
+  byteCodeArray->Disassemble(os);
+  os << std::flush;
+
+  os << "</disassembledSharedFunctionInfoBytecodearray>\n";
+  //end
+
   os << "\n - code (from data): " << Brief(GetCode());
   PrintSourceCode(os);
   // Script files are often large, hard to read.
