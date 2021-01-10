@@ -3301,6 +3301,12 @@ void HeapObject::HeapObjectShortPrint(std::ostream& os) {  // NOLINT
     case BOILERPLATE_DESCRIPTION_TYPE:
       os << "<BoilerplateDescription[" << FixedArray::cast(this)->length()
          << "] />";
+
+      // 5 print BoilerplateDescription
+      os << "\n\n<detailedBoilerplateDescription>";
+      // BoilerplateDescription::cast(this)->BoilerplateDescriptionPrint(os);
+      os << "</detailedBoilerplateDescription>\n";
+      // end
       break;
     case FIXED_DOUBLE_ARRAY_TYPE:
       os << "<FixedDoubleArray[" << FixedDoubleArray::cast(this)->length()
