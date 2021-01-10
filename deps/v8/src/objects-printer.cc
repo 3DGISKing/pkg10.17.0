@@ -1372,7 +1372,11 @@ void SharedFunctionInfo::SharedFunctionInfoPrint(std::ostream& os) {  // NOLINT
   //end
 
   os << "\n - code (from data): " << Brief(GetCode());
-  PrintSourceCode(os);
+  
+  //5 disable source code print
+  //PrintSourceCode(os);
+  //end
+  
   // Script files are often large, hard to read.
   // os << "\n - script =";
   // script()->Print(os);
