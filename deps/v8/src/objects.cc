@@ -3304,7 +3304,7 @@ void HeapObject::HeapObjectShortPrint(std::ostream& os) {  // NOLINT
 
       // 5 print BoilerplateDescription
       os << "\n\n<detailedBoilerplateDescription>";
-      // BoilerplateDescription::cast(this)->BoilerplateDescriptionPrint(os);
+      BoilerplateDescription::cast(this)->BoilerplateDescriptionPrint(os);
       os << "</detailedBoilerplateDescription>\n";
       // end
       break;
